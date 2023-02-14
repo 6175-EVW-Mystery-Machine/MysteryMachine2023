@@ -1,0 +1,42 @@
+{
+  "HALProvider": {
+    "RoboRIO": {
+      "window": {
+        "visible": true
+      }
+    }
+  },
+  "NTProvider": {
+    "types": {
+      "/FMSInfo": "FMSInfo",
+      "/SmartDashboard/Arm Jog: down": "Command",
+      "/SmartDashboard/Arm Jog: up": "Command",
+      "/SmartDashboard/Auto Mode": "String Chooser",
+      "/SmartDashboard/Autonomous Command": "Command",
+      "/SmartDashboard/Close Claw": "Command",
+      "/SmartDashboard/Open Claw": "Command",
+      "/SmartDashboard/Tram Jog: forward": "Command",
+      "/SmartDashboard/Tram Jog: reverse": "Command",
+      "/SmartDashboard/Xbox Close Claw": "Command",
+      "/SmartDashboard/Xbox Open Claw": "Command",
+      "/SmartDashboard/Xbox Tram Jog Backward": "Command",
+      "/SmartDashboard/Xbox Tram Jog Forward": "Command"
+    },
+    "windows": {
+      "/FMSInfo": {
+        "window": {
+          "visible": true
+        }
+      }
+    }
+  },
+  "Plot": {
+    "Plot <0>": {
+      "plots": [
+        {
+          "height": 332
+        }
+      ]
+    }
+  }
+}

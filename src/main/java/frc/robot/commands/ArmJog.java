@@ -57,6 +57,7 @@ public class ArmJog extends CommandBase {
     @Override
     public void execute() {
         m_arm.my_ArmJog(m_setpoint);
+
     }
 
     // Called once the command ends or is interrupted.
