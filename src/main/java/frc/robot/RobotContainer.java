@@ -132,10 +132,10 @@ final JoystickButton xboxCloseClaw = new JoystickButton(xboxController, XboxCont
 xboxCloseClaw.onTrue(new CloseClaw( m_claw ).withInterruptBehavior(InterruptionBehavior.kCancelSelf));
                         SmartDashboard.putData("Xbox Close Claw",new CloseClaw( m_claw ));
  */                       
-final JoystickButton pS4ArmJogDown = new JoystickButton(driverController, 8);        
+final JoystickButton pS4ArmJogDown = new JoystickButton(driverController, 7);        
 pS4ArmJogDown.whileTrue(new ArmJog(-1, m_arm).withInterruptBehavior(InterruptionBehavior.kCancelSelf));
                         
-final JoystickButton pS4ArmJogUp = new JoystickButton(driverController, 7);        
+final JoystickButton pS4ArmJogUp = new JoystickButton(driverController, 8);        
 pS4ArmJogUp.whileTrue(new ArmJog(1, m_arm).withInterruptBehavior(InterruptionBehavior.kCancelSelf));
                         
 final JoystickButton pS4TramJogReverse = new JoystickButton(driverController, PS4Controller.Button.kL1.value);        
