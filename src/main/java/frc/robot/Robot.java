@@ -12,6 +12,7 @@
 
 package frc.robot;
 
+import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.hal.FRCNetComm.tInstances;
 import edu.wpi.first.hal.FRCNetComm.tResourceType;
 import edu.wpi.first.hal.HAL;
@@ -32,6 +33,7 @@ public class Robot extends TimedRobot {
 
     private RobotContainer m_robotContainer;
 
+  
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
@@ -42,6 +44,8 @@ public class Robot extends TimedRobot {
         // autonomous chooser on the dashboard.
         m_robotContainer = RobotContainer.getInstance();
         HAL.report(tResourceType.kResourceType_Framework, tInstances.kFramework_RobotBuilder);
+        CameraServer.startAutomaticCapture();
+
     }
 
     /**
