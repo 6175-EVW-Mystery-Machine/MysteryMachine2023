@@ -117,6 +117,10 @@ differentialDrive1.setMaxOutput(1.0);
     public void my_driveArcade(double speed, double turn) {
         differentialDrive1.arcadeDrive(speed, turn);
     }
+    
+    public void my_DriveTank(double leftSpeed, double rightSpeed){
+        differentialDrive1.tankDrive(leftSpeed, rightSpeed);
+    }
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 
