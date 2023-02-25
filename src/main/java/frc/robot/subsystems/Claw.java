@@ -70,8 +70,26 @@ clawSolenoid = new DoubleSolenoid(1, PneumaticsModuleType.REVPH, 7, 8);
     public void my_closeClaw() {
         clawSolenoid.set(Value.kReverse);
     }
+
+    public void setClawToggle(boolean isClawOpen){
+        if(isClawOpen){
+            my_closeClaw();
+        }else{
+            my_openClaw();
+        }
+    }
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
+
+   
+    public boolean get_isClawOpen(){
+        if(clawSolenoid.isFwdSolenoidDisabled()==false){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
 
 }
 
