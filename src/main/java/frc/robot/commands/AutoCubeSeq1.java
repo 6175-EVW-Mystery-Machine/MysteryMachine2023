@@ -46,14 +46,18 @@ public class AutoCubeSeq1 extends SequentialCommandGroup {
         //      )    
         //  );
         new DriveToggleBreakMode(driveTrain),
-        Commands.parallel(  new ArmJog(.3, m_arm).withTimeout(3.9),
-                            new TramJog(0.8,m_tram).withTimeout(5)),
-        new WaitCommand(0.5),
-        new DriveWithJoy(() -> .4,() -> 0.0, driveTrain).withTimeout(2),
-        new WaitCommand(0.5),
+        new ArmJog(.6, m_arm).withTimeout(2.1),
+        new TramJog(1,m_tram).withTimeout(3),
+        new WaitCommand(0.25),
+       // new DriveWithJoy(() -> .4,() -> 0.0, driveTrain).withTimeout(2),
+       new DriveForDistance(23.5, 0.5, 0, driveTrain),
+
+        new WaitCommand(0.25),
         new OpenClaw(m_claw),
-        new WaitCommand(1),
-        new DriveWithJoy(() -> -0.5,() -> 0.0, driveTrain).withTimeout(3),
+        new WaitCommand(0.5),
+        //new DriveWithJoy(() -> -0.5,() -> 0.0, driveTrain).withTimeout(3),
+       new DriveForDistance(137.25, -0.5, 0, driveTrain),
+       new HomeJogging(m_arm, m_claw, m_tram),
         new DriveToggleBreakMode(driveTrain)
        
        
