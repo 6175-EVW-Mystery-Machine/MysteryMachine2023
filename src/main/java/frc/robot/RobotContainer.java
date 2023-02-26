@@ -147,10 +147,10 @@ coneExtend.onTrue(new ConeExtend(m_arm, m_claw, m_tram).withInterruptBehavior(In
 //ARM JOGGERS
 
 final JoystickButton armJogUpFast = new JoystickButton(joystick1, 8);        
-armJogUpFast.whileTrue(new ArmJog(0.6, m_arm).withInterruptBehavior(InterruptionBehavior.kCancelSelf));
+armJogUpFast.whileTrue(new ArmJog(0.5, m_arm).withInterruptBehavior(InterruptionBehavior.kCancelSelf));
 
 final JoystickButton armJogDownFast = new JoystickButton(joystick1, 7);        
-armJogDownFast.whileTrue(new ArmJog(-0.6, m_arm).withInterruptBehavior(InterruptionBehavior.kCancelSelf));
+armJogDownFast.whileTrue(new ArmJog(-0.5, m_arm).withInterruptBehavior(InterruptionBehavior.kCancelSelf));
 
 final JoystickButton armJogUpSlow = new JoystickButton(joystick1, 6);        
 armJogUpSlow.whileTrue(new ArmJog(0.2, m_arm).withInterruptBehavior(InterruptionBehavior.kCancelSelf));
@@ -167,23 +167,25 @@ final JoystickButton tramJogRevFast = new JoystickButton(joystick1, 9);
 tramJogRevFast.whileTrue(new TramJog(-1, m_tram).withInterruptBehavior(InterruptionBehavior.kCancelSelf));
 
 final JoystickButton tramJogFwdSlow = new JoystickButton(joystick1, 4);        
-tramJogFwdSlow.whileTrue(new TramJog(0.4, m_tram).withInterruptBehavior(InterruptionBehavior.kCancelSelf));
+tramJogFwdSlow.whileTrue(new TramJog(0.5, m_tram).withInterruptBehavior(InterruptionBehavior.kCancelSelf));
 
 final JoystickButton tramJogRevSlow = new JoystickButton(joystick1, 3);        
-tramJogRevSlow.whileTrue(new TramJog(-0.4, m_tram).withInterruptBehavior(InterruptionBehavior.kCancelSelf));
+tramJogRevSlow.whileTrue(new TramJog(-0.5, m_tram).withInterruptBehavior(InterruptionBehavior.kCancelSelf));
 
 //DIRECTIONAL BUTTONS
 
 final POVButton driveRotateUpfield = new POVButton(joystick1, 270);
-driveRotateUpfield.onTrue(new DriveRotateToSetpoint(0,m_driveTrain).withInterruptBehavior(InterruptionBehavior.kCancelSelf));
+driveRotateUpfield.onTrue(new DriveRotateToSetpoint(0,m_driveTrain).withTimeout(2));
 
 final POVButton driveRotateDownfieldButton = new POVButton(joystick1, 90);
-driveRotateDownfieldButton.onTrue(new DriveRotateToSetpoint(180,m_driveTrain).withInterruptBehavior(InterruptionBehavior.kCancelSelf));
-
+driveRotateDownfieldButton.onTrue(new DriveRotateToSetpoint(180,m_driveTrain).withTimeout(2));
 //ABIS STUPID BUTTONS
 
 final JoystickButton tramBalance = new JoystickButton(joystick2, 8);
 tramBalance.whileTrue(new TramBalance(m_tram).withInterruptBehavior(InterruptionBehavior.kCancelSelf));
+
+final JoystickButton gyroResetButton = new JoystickButton(joystick2, 12);
+gyroResetButton.whileTrue(new ResetGyro(m_driveTrain).withInterruptBehavior(InterruptionBehavior.kCancelSelf));
 
 
 

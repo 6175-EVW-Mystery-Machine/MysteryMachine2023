@@ -23,13 +23,13 @@ public class DriveRotateToSetpoint extends PIDCommand {
         // This should return the setpoint (can also be a constant)
         setpoint,
         // This uses the output
-        output -> driveTrain.my_driveArcade(0.0, MathUtil.clamp(output, -0.3, 0.3)));
+        output -> driveTrain.my_driveArcade(0.0, MathUtil.clamp(output, -0.4, 0.4)));
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(driveTrain);
     // Configure additional PID options by calling `getController` here.
     getController().enableContinuousInput(-180, 180);
     getController()
-        .setTolerance(2, 45);
+        .setTolerance(3, 45);
     
   }
 

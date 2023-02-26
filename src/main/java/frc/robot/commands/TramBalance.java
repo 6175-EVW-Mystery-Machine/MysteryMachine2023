@@ -16,6 +16,6 @@ public class TramBalance extends ParallelCommandGroup {
     // Add your commands in the addCommands() call, e.g.
     // addCommands(new FooCommand(), new BarCommand());
     addCommands(
-    new TramJog(1, m_tram).withTimeout(1.5));
+    new TramJog(1, m_tram).withTimeout(2));
   }
 }
