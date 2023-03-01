@@ -45,29 +45,32 @@ public class AutoCubeSeq2 extends SequentialCommandGroup {
         //          new command3(argsN, subsystem)
         //      )    
         //  );
+
         new DriveToggleBreakMode(driveTrain),
         new ResetGyro(driveTrain),
+        new DriverWithHeading(-0.3, 23.5, 0, driveTrain),
+   
         new ArmJog(1, m_arm).withTimeout(1.125),
         new TramJog(1,m_tram).withTimeout(2),
         new WaitCommand(0.25),
        // new DriveWithJoy(() -> .4,() -> 0.0, driveTrain).withTimeout(2),
-       new DriveForDistance(23.5, 0.5, 0, driveTrain),
+       new DriverWithHeading(0.3, 23.5, 1, driveTrain),
 
         new WaitCommand(0.25),
         new OpenClaw(m_claw),
         new WaitCommand(0.25),
         //new DriveWithJoy(() -> -0.5,() -> 0.0, driveTrain).withTimeout(3),
-       new DriveForDistance(137.25, -0.5, 0, driveTrain),
+       new DriverWithHeading(-0.4, 137.25, 0, driveTrain),
        new ArmJog(-1, m_arm).withTimeout(1.25),
     
-        new DriveRotateToSetpoint(180, driveTrain).withTimeout(3),
-       new DriveForDistance(41, 0.5, 0, driveTrain),//Really 76.25 - 73
+        new DriveRotateToSetpoint(180, driveTrain).withTimeout(5),
+       new DriverWithHeading(0.5, 41, 180, driveTrain),//Really 76.25 - 73
        new CloseClaw(m_claw),
-        new DriveRotateToSetpoint(1, driveTrain).withTimeout(3),
+        new DriveRotateToSetpoint(0, driveTrain).withTimeout(5),
 
 
         Commands.parallel(
-             new DriveForDistance(168, 0.5, 0, driveTrain),//Really 187.5
+             new DriverWithHeading(0.4, 166, 2, driveTrain),//Really 187.5
              new CubeExtend(m_arm, m_claw, m_tram)
         ),
         new OpenClaw(m_claw),
