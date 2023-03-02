@@ -6,6 +6,7 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.WaitCommand;
+import frc.robot.subsystems.Claw;
 import frc.robot.subsystems.DriveTrain;
 
 // NOTE:  Consider using this command inline, rather than writing a subclass.  For more
@@ -13,7 +14,7 @@ import frc.robot.subsystems.DriveTrain;
 // https://docs.wpilib.org/en/stable/docs/software/commandbased/convenience-features.html
 public class AutoBalance extends SequentialCommandGroup {
   /** Creates a new AutoBalance. */
-  public AutoBalance(DriveTrain m_drivetrain){
+  public AutoBalance(DriveTrain m_drivetrain, Claw m_claw){
     // Add your commands in the addCommands() call, e.g.
     // addCommands(new FooCommand(), new BarCommand());
     addCommands(
@@ -28,7 +29,7 @@ public class AutoBalance extends SequentialCommandGroup {
      new DriveRotateToSetpoint(270, m_drivetrain),
     //  new DriveWithJoy(() ->-0.1, ()->0, m_drivetrain).withTimeout(0.75),
 
-     new ClapSequence(null)
+     new ClapSequence(m_claw)
 
     );
   }

@@ -17,6 +17,8 @@ public class ClapSequence extends SequentialCommandGroup {
   public ClapSequence(Claw m_claw) {
     // Add your commands in the addCommands() call, e.g.
     // addCommands(new FooCommand(), new BarCommand());
+    addRequirements(m_claw);
+
     addCommands(
 
     new CloseClaw(m_claw),
