@@ -18,8 +18,7 @@ public class AutoBalance extends SequentialCommandGroup {
     // Add your commands in the addCommands() call, e.g.
     // addCommands(new FooCommand(), new BarCommand());
     addCommands(
-      new WaitCommand(8),
-
+      new WaitCommand(6),
       new DriveForDistance(86, -0.4, 0, m_drivetrain),
       new WaitCommand(0.25),
       new DriveForDistance(3.5, 0.4, 0, m_drivetrain),

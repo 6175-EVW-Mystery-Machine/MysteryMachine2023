@@ -11,7 +11,6 @@
 // ROBOTBUILDER TYPE: SequentialCommandGroup.
 
 package frc.robot.commands;
-import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.WaitCommand;
 import frc.robot.subsystems.Arm;
@@ -57,11 +56,6 @@ public class AutoCubeSeq1v2 extends SequentialCommandGroup {
        new GrabExtend(m_arm, m_claw, m_tram),
        new DriveRotateToSetpoint(180, driveTrain).withTimeout(3),
         new DriveToggleBreakMode(driveTrain)
-       
-       
-        
-        
-
         );
     }
 
