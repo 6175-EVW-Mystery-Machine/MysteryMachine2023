@@ -12,9 +12,9 @@ import frc.robot.subsystems.DriveTrain;
 // NOTE:  Consider using this command inline, rather than writing a subclass.  For more
 // information, see:
 // https://docs.wpilib.org/en/stable/docs/software/commandbased/convenience-features.html
-public class DriveRotateToSetpoint extends PIDCommand {
+public class DriveRotateToSetpointFaster extends PIDCommand {
   /** Creates a new DriveRotateToSetpoint. */
-  public DriveRotateToSetpoint(double setpoint, DriveTrain driveTrain) {
+  public DriveRotateToSetpointFaster(double setpoint, DriveTrain driveTrain) {
     super(
         // The controller that the command will use
         new PIDController(.05, 0, 0),
@@ -23,7 +23,7 @@ public class DriveRotateToSetpoint extends PIDCommand {
         // This should return the setpoint (can also be a constant)
         setpoint,
         // This uses the output
-        output -> driveTrain.my_driveArcade(0.0, MathUtil.clamp(output, -0.4, 0.4)));
+        output -> driveTrain.my_driveArcade(0.0, MathUtil.clamp(output, -0.5, 0.5)));
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(driveTrain);
     // Configure additional PID options by calling `getController` here.

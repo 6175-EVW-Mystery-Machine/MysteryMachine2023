@@ -51,23 +51,23 @@ public class AutoCubeSeq4 extends SequentialCommandGroup {
         Commands.parallel(
             new ArmJog(1, m_arm).withTimeout(1.125),
             new TramJog(1,m_tram).withTimeout(2),
-            new DriverWithHeading(0.3, 23.5, 1, driveTrain)
+            new DriverWithHeading(0.3, 23.5, 1, driveTrain).withTimeout(2)
         ),
         new OpenClaw(m_claw),
-        new WaitCommand(0.125),
-       new DriverWithHeading(-0.5, 137.25, 0, driveTrain),
-       Commands.parallel(
-           new ArmJog(-1, m_arm).withTimeout(1.25),
-            new DriveRotateToSetpoint(180, driveTrain).withTimeout(4)
-       ),
-       new DriverWithHeading(0.5, 41, 180, driveTrain),//Really 76.25 - 73
+        // new WaitCommand(0.125),
+        Commands.parallel(
+           new DriverWithHeading(-0.5, 137.25, 0, driveTrain),
+           new ArmJog(-1, m_arm).withTimeout(1.25)
+           ),
+           new DriveRotateToSetpointFaster(180, driveTrain).withTimeout(3),
+            new DriverWithHeading(0.5, 41, 180, driveTrain),//Really 76.25 - 73
        Commands.parallel(
            new CloseClaw(m_claw),
            new ArmJog(1, m_arm).withTimeout(0.25),
-           new DriveRotateToSetpoint(0, driveTrain).withTimeout(5)
+           new DriveRotateToSetpointFaster(0, driveTrain).withTimeout(3)
        ),
         Commands.parallel(
-             new DriverWithHeading(0.4, 166, 2, driveTrain),//Really 187.5
+             new DriverWithHeading(0.5, 166, 2, driveTrain),//Really 187.5
              new CubeExtend(m_arm, m_claw, m_tram)
         ),
         new OpenClaw(m_claw),

@@ -42,8 +42,8 @@ public class GrabExtend extends SequentialCommandGroup {
         //      )    
         //  );
         Commands.parallel(
-            new ArmJog(1, arm).withTimeout(0.5),
-            new TramJog(1, tram).withTimeout(1.5)
+            new ArmJog(1, arm).withTimeout(0.35),
+            new TramJog(1, tram).withTimeout(1)
             ),
             new OpenClaw(claw)
         );
